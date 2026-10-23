@@ -1,0 +1,19 @@
+<html><body><button>重 置</button><label>资源ID<input aria-label="资源ID"></label><button id="query">查 询</button><div class="ant-spin-spinning" style="display:none">加载中</div><div class="ant-table"><table><thead><tr><th>选择</th><th>资源ID</th><th>资源名</th><th>分类</th><th>城市</th><th>其他</th><th>线路ID</th><th>其他2</th><th>套餐</th><th>其他3</th><th>车型</th><th>其他4</th><th>其他5</th><th>状态</th></tr></thead><tbody><tr data-row-key="2049846"><td></td><td>2049846</td><td></td><td></td><td>杭州</td><td></td><td>2738</td><td></td><td>8小时/100公里</td><td></td><td>丰田埃尔法</td><td></td><td></td><td>下线</td></tr></tbody></table></div><script>
+        const cells=["", "2049846", "", "", "杭州", "", "2738", "", "8小时/100公里", "", "丰田埃尔法", "", "", "上线"],heads=["选择", "资源ID", "资源名", "分类", "城市", "其他", "线路ID", "其他2", "套餐", "其他3", "车型", "其他4", "其他5", "状态"],mode="slow";
+        const render=values=>'<tr data-row-key="2049846">'+values.map(v=>'<td>'+v+'</td>').join('')+'</tr>';
+        const body=document.querySelector('tbody');
+        document.querySelector('#query').onclick=async()=>{
+            window.queryCount++;
+            const request=fetch('/synthetic-resource-query?resource_id='+document.querySelector('input').value);
+            if(mode==='stale') { await request; return; }
+            if(mode==='busy') document.querySelector('.ant-spin-spinning').style.display='block';
+            body.innerHTML=render(['partial']);
+            await request;
+            setTimeout(()=>{
+                body.innerHTML=mode==='empty'?'':render(cells)+(mode==='duplicate'?render(cells):'');
+                document.querySelector('thead').innerHTML='<tr>'+heads.map(v=>'<th>'+v+'</th>').join('')+'</tr>';
+                if(mode==='busy') setTimeout(()=>document.querySelector('.ant-spin-spinning').style.display='none',450);
+            },mode==='slow'?550:80);
+        };
+        window.queryCount=0;
+    </script></body></html>

@@ -1,0 +1,20 @@
+# Local runtime, browser sessions, generated files and previous distributions
+__pycache__/
+*.py[cod]
+.env
+.env.*
+*.saz
+*.har
+*.log
+*cookies*.json
+*storage_state*.json
+/tools/
+/recovered-v2.9/
+/dist/
+/exe-test-profile*/
+/test-data/
+/bytecode-review/
+/review/
+/ui-preview/
+/*self-test.json
+/夏末初秋-最新版.zip

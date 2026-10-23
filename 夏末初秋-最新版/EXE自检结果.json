@@ -1,0 +1,23 @@
+{
+  "bundled_browser": true,
+  "tk_logo": true,
+  "pricing_import": true,
+  "async_supplier_import": true,
+  "floor_editor_import": true,
+  "night_editor_import": true,
+  "version": "2.15",
+  "writes_to_vbk": false,
+  "city_floor_ui": true,
+  "city_floor_save_reload": true,
+  "city_floor_resource_count": 90,
+  "city_floor_isolation": true,
+  "floor_price_font_size": 16,
+  "floor_price_font_verified": true,
+  "workbench_ui": true,
+  "workbench_pages": 4,
+  "coroutine_quote_pipeline": true,
+  "local_new_version_banner": true,
+  "vbk_delayed_table_read": true,
+  "vbk_live_requests": 0,
+  "vbk_price_writes": 0
+}
